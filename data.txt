@@ -1,0 +1,2 @@
+test|word|từ ngữ
+test 2|test|kiểm tra
