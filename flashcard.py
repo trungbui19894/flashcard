@@ -62,7 +62,7 @@ def selectSet():
     if setsCombobox.get():
         showFlashcards()
     else:
-        wordLable.config(text="Ko có card đâu nhé cưng :v")
+        wordLable.config(text="Ko có card đâu nhé cưng :3")
         definitionLable.config(text='')
     
 
@@ -71,7 +71,7 @@ def showFlashcards():
     global cardIndex
     global cardList
     if cardIndex < len(cardList):
-        if (datetime.strptime(cardList[cardIndex][3], "%m/%d/%Y, %H:%M:%S") - datetime.now()).seconds >= 0 and cardList[cardIndex][0] == setsCombobox.get():
+        if datetime.strptime(cardList[cardIndex][3], "%m/%d/%Y, %H:%M:%S") < datetime.now() and cardList[cardIndex][0] == setsCombobox.get():
             wordLable.config(text=cardList[cardIndex][1])
             definitionLable.config(text='')
             cardIndex += 1
@@ -87,12 +87,48 @@ def flipCard():
     if cardIndex < len(cardList):
         definitionLable.config(text=cardList[cardIndex - 1][2])
 
-
+#Học lại 1 phút
 def handleRelearn():
     global cardIndex
     global cardList
     if cardIndex <= len(cardList):
-        cardList[cardIndex-1][3] = (datetime.now() + timedelta(seconds=1)).strftime("%m/%d/%Y, %H:%M:%S")
+        cardList[cardIndex-1][3] = (datetime.now() + timedelta(minutes=1)).strftime("%m/%d/%Y, %H:%M:%S")
+        fileObject = open('data.txt', mode='w+', encoding='utf-8')
+        for ele in range(len(cardList)):
+            fileObject.write(cardList[ele][0] + '|' + cardList[ele][1] + '|' + cardList[ele][2] + '|' + (cardList[ele][3]) + '\n')
+        fileObject.close()
+    showFlashcards()
+
+#Khó 6 phút
+def handleHard():
+    global cardIndex
+    global cardList
+    if cardIndex <= len(cardList):
+        cardList[cardIndex-1][3] = (datetime.now() + timedelta(minutes=6)).strftime("%m/%d/%Y, %H:%M:%S")
+        fileObject = open('data.txt', mode='w+', encoding='utf-8')
+        for ele in range(len(cardList)):
+            fileObject.write(cardList[ele][0] + '|' + cardList[ele][1] + '|' + cardList[ele][2] + '|' + (cardList[ele][3]) + '\n')
+        fileObject.close()
+    showFlashcards()
+
+#Tốt 10 phút
+def handleGood():
+    global cardIndex
+    global cardList
+    if cardIndex <= len(cardList):
+        cardList[cardIndex-1][3] = (datetime.now() + timedelta(minutes=10)).strftime("%m/%d/%Y, %H:%M:%S")
+        fileObject = open('data.txt', mode='w+', encoding='utf-8')
+        for ele in range(len(cardList)):
+            fileObject.write(cardList[ele][0] + '|' + cardList[ele][1] + '|' + cardList[ele][2] + '|' + (cardList[ele][3]) + '\n')
+        fileObject.close()
+    showFlashcards()
+
+#Dễ 4 ngày
+def handleEasy():
+    global cardIndex
+    global cardList
+    if cardIndex <= len(cardList):
+        cardList[cardIndex-1][3] = (datetime.now() + timedelta(days=4)).strftime("%m/%d/%Y, %H:%M:%S")
         fileObject = open('data.txt', mode='w+', encoding='utf-8')
         for ele in range(len(cardList)):
             fileObject.write(cardList[ele][0] + '|' + cardList[ele][1] + '|' + cardList[ele][2] + '|' + (cardList[ele][3]) + '\n')
@@ -154,9 +190,9 @@ if __name__ == '__main__':
     definitionLable = ttk.Label(learnFrame, text='')
     definitionLable.pack(padx=5, pady=5)
     ttk.Button(learnFrame, bootstyle="danger", text='<1 phút\nHọc Lại', command=handleRelearn).pack(side='left', padx=5, pady=5)
-    ttk.Button(learnFrame, bootstyle="warning", text='<6 phút\nKhó').pack(side='left', padx=5, pady=5)
-    ttk.Button(learnFrame, bootstyle="info", text='<10 phút\nTốt').pack(side='left', padx=5, pady=5)
-    ttk.Button(learnFrame, bootstyle="success", text='<4 ngày\nDễ').pack(side='left', padx=5, pady=5)
+    ttk.Button(learnFrame, bootstyle="warning", text='<6 phút\nKhó', command=handleHard).pack(side='left', padx=5, pady=5)
+    ttk.Button(learnFrame, bootstyle="info", text='<10 phút\nTốt', command=handleGood).pack(side='left', padx=5, pady=5)
+    ttk.Button(learnFrame, bootstyle="success", text='<4 ngày\nDễ', command=handleEasy).pack(side='left', padx=5, pady=5)
     ttk.Button(learnFrame, text='Lật Card', command=flipCard).pack(side='right', padx=5, pady=5)
                                                       
     getSets()
