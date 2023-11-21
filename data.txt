@@ -1,8 +1,6 @@
-sadad|asd|asd|11/20/2023, 18:58:54
-21314214|fdsf|afasfasf|11/20/2023, 18:55:52
-21314214|34646res|sdgsdgsdg|11/20/2023, 18:55:54
-sadaD|SADFSDAFASFSF|SAFSAFA|11/20/2023, 18:57:38
-adaafasf|12313|424sdasd|11/24/2023, 21:23:24
-adaafasf|231sadaf|safasfa|11/20/2023, 21:27:58
-adaafasf|353253afas|sdfasf|11/20/2023, 21:31:59
-adaafasf|325fsdfzvz|fasdfa|11/24/2023, 21:22:06
+qwe123|wqdadaf|dfaf|11/21/2023, 17:32:26|true
+qwe123|32532af|assfas|11/21/2023, 17:32:26|true
+qwe123|4242|141|11/21/2023, 17:32:27|true
+qwe123|afaf|sadf|11/21/2023, 15:26:26|false
+qwe67|afasafs|sdfasf|11/21/2023, 00:49:47|false
+qwe67|sdfaf|adfa|11/21/2023, 00:49:48|false
