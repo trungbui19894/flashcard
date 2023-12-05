@@ -1,9 +1,11 @@
 from tkinter import *
 import globalVariable
-from interface.Home import Home
-from interface.libraryInterface.Library import Library
-from interface.FileController import FileCtr
 from controller.displayHandle import show_main_label_button
+from interface.Home import Home
+from interface.FileController import FileCtr
+from interface.Stat import Stat
+from interface.libraryInterface.Library import Library
+from interface.libraryInterface.Study import Study
 from interface.libraryInterface.SeeCard import SeeCard
 
 if __name__ == '__main__':
@@ -61,6 +63,8 @@ if __name__ == '__main__':
     Library()
     FileCtr()
     SeeCard()
+    Stat()
+    Study()
     show_main_label_button()
     #chay
     window = mainloop()

@@ -2,3 +2,7 @@ test 4|hello|chào |12/02/2023, 21:21:51|true
 test 4|bye|bai bai |11/28/2023, 15:04:10|true
 test 5|xách nước|bổ cam|12/02/2023, 22:11:59|true
 test 5|ăn quả nhớ|nhả hột ra|11/27/2023, 22:32:54|false
+test 4|hello|chào |12/02/2023, 21:21:51|true|12/05/2023, 10:32:49|unlearn
+test 4|bye|bai bai |11/28/2023, 15:04:10|true|12/05/2023, 10:32:49|unlearn
+test 5|xách nước|bổ cam|12/02/2023, 22:11:59|true|12/05/2023, 10:32:49|unlearn
+test 5|ăn quả nhớ|nhả hột ra|11/27/2023, 22:32:54|false|12/05/2023, 10:32:49|unlearn

@@ -17,3 +17,6 @@ def get_definition(var):
 def get_card_infor(var):
     info = var.split("|")
     return info
+
+def count_pipe_characters(input_string):
+    return input_string.count("|")
